@@ -14,6 +14,7 @@ import BotonSeguridad from '../../components/BotonSeguridad';
 import BackgroundSeguridad from '../../components/BackgroundSeguridad';
 
 import '../../scss/EsquemaSeguridad.scss';
+import { seguridadRutas } from '@/utils/paths';
 
 function IniciarSesion() {
   const formSchema = z.object(FORM_SCHEMA_INICIAR_SESION);
@@ -52,7 +53,7 @@ function IniciarSesion() {
               placeholder="Ingrese su contraseña"
             >
               <div className="text-sm">
-                <Link to="restore-password/">
+                <Link to={seguridadRutas[1].unionPath}>
                   <p className="font-semibold text-[#1877F2] hover:text-[#4793F7]">
                     ¿Olvidaste tu contraseña?
                   </p>

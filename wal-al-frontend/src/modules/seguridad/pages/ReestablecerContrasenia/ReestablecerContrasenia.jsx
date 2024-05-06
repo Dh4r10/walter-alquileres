@@ -15,6 +15,7 @@ import BotonSeguridad from '../../components/BotonSeguridad';
 import BackgroundSeguridad from '../../components/BackgroundSeguridad';
 
 import '../../scss/EsquemaSeguridad.scss';
+import { seguridadRutas } from '@/utils/paths';
 
 const ReestablecerContrasenia = () => {
   const formSchema = z.object(FORM_SCHEMA_REESTABLECER_CONTRASENIA);
@@ -46,7 +47,7 @@ const ReestablecerContrasenia = () => {
               label="Correo"
               placeholder="Ingrese su correo"
             />
-            <Link to="/login">
+            <Link to={seguridadRutas[0].path}>
               <p className="text-sm font-normal text-[#1877F2] hover:text-[#4793F7] mt-4">
                 Volver a inicio de sesión
               </p>

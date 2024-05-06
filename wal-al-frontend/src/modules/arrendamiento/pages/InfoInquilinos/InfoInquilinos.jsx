@@ -1,12 +1,12 @@
 import MenuLateral from '@/components/MenuLateral';
 import React from 'react';
 
-const ListaInquilinos = () => {
+const InfoInquilinos = () => {
   return (
     <MenuLateral>
-      <div className="h-full">1</div>
+      <div className="h-full">2</div>
     </MenuLateral>
   );
 };
 
-export default ListaInquilinos;
+export default InfoInquilinos;

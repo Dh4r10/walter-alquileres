@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 
-import './MenuLateral.scss';
 import MenuAnt from './MenuAnt';
+import BreadcrumbCN from './BreadCrumb';
+import { totalRutas } from '@/utils/paths';
+
+import './MenuLateral.scss';
 
 const MenuLateral = (props) => {
   const { children } = props;
@@ -15,7 +18,7 @@ const MenuLateral = (props) => {
   };
 
   return (
-    <div className="menu-lateral h-full">
+    <div className="menu-lateral h-full overflow-auto">
       <div className="w-full bg-white">
         <div className="menu-lateral__boton border-b-[1px]">
           <Button
@@ -35,7 +38,12 @@ const MenuLateral = (props) => {
         </div>
         <MenuAnt collapsed={collapsed} />
       </div>
-      <div className="grid mx-4">{children}</div>
+      <div className="menu-lateral__content mx-4">
+        <div className="flex items-center">
+          <BreadcrumbCN rutas={totalRutas} />
+        </div>
+        {children}
+      </div>
     </div>
   );
 };

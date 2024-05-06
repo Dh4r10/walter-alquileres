@@ -7,23 +7,36 @@ import ReestablecerContrasenia from './modules/seguridad/pages/ReestablecerContr
 import ActualizarContrasenia from './modules/seguridad/pages/ActualizarContrasenia';
 import ListaInquilinos from './modules/arrendamiento/pages/ListaInquilinos';
 
+import { arrendamientoRutas, seguridadRutas } from './utils/paths';
+import InfoInquilinos from './modules/arrendamiento/pages/InfoInquilinos';
+
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <div className="h-screen bg-slate-100">
       <Routes>
-        <Route element={<IniciarSesion />} path="/login" />
+        <Route element={<IniciarSesion />} path={seguridadRutas[0].path} />
         <Route
           element={<ReestablecerContrasenia />}
-          path="/login/restore-password"
+          path={seguridadRutas[0].path + seguridadRutas[1].path}
         />
         <Route
           element={<ActualizarContrasenia />}
           path="/login/update-password"
         />
-        <Route path="/" element={<Navigate to="/lista-inquilinos" />} />
-        <Route element={<ListaInquilinos />} path="/lista-inquilinos" />
+        <Route
+          path="/"
+          element={<Navigate to={arrendamientoRutas[0].path} />}
+        />
+        <Route
+          element={<ListaInquilinos />}
+          path={arrendamientoRutas[0].path}
+        />
+        <Route
+          element={<InfoInquilinos />}
+          path={arrendamientoRutas[0].path + arrendamientoRutas[1].path}
+        />
       </Routes>
     </div>
   );
