@@ -1,0 +1,25 @@
+.menu-lateral {
+  display: grid;
+  grid-template-columns: 1fr 25fr;
+
+  &__boton {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+  }
+
+  .ant-menu-inline {
+    width: 27vh;
+    min-width: 220px;
+  }
+
+  .ant-menu-vertical {
+    width: 81px;
+  }
+
+  .ant-menu-item-danger {
+    border-style: solid !important;
+    border-top: 1px;
+    border-bottom: 1px;
+    border-color: rgba(255, 108, 108, 0.431) !important;
+  }
+}
