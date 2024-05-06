@@ -1,44 +1,17 @@
 import React, { useState } from 'react';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
-import { Button, Menu, ConfigProvider } from 'antd';
-
-import { ITEMS } from './MenuLateralConstans';
-import { getLevelKeys } from './MenuLateralFunctions';
+import { Button } from 'antd';
 
 import './MenuLateral.scss';
-
-const levelKeys = getLevelKeys(ITEMS);
+import MenuAnt from './MenuAnt';
 
 const MenuLateral = (props) => {
   const { children } = props;
 
   const [collapsed, setCollapsed] = useState(false);
-  const [stateOpenKeys, setStateOpenKeys] = useState(['2', '23']);
 
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
-  };
-
-  const onOpenChange = (openKeys) => {
-    const currentOpenKey = openKeys.find(
-      (key) => stateOpenKeys.indexOf(key) === -1
-    );
-    // open
-    if (currentOpenKey !== undefined) {
-      const repeatIndex = openKeys
-        .filter((key) => key !== currentOpenKey)
-        .findIndex((key) => levelKeys[key] === levelKeys[currentOpenKey]);
-      setStateOpenKeys(
-        openKeys
-          // remove repeat key
-          .filter((_, index) => index !== repeatIndex)
-          // remove current level all child
-          .filter((key) => levelKeys[key] <= levelKeys[currentOpenKey])
-      );
-    } else {
-      // close
-      setStateOpenKeys(openKeys);
-    }
   };
 
   return (
@@ -60,29 +33,9 @@ const MenuLateral = (props) => {
             />
           </div>
         </div>
-        <ConfigProvider
-          theme={{
-            components: {
-              Menu: {
-                itemBorderRadius: 'none',
-              },
-            },
-          }}
-        >
-          <Menu
-            className="menu-lateral__component-ant"
-            mode="inline"
-            defaultSelectedKeys={['231']}
-            openKeys={stateOpenKeys}
-            onOpenChange={onOpenChange}
-            inlineCollapsed={collapsed}
-            items={ITEMS}
-          />
-        </ConfigProvider>
+        <MenuAnt collapsed={collapsed} />
       </div>
-      <div className="grid mx-4">
-        <div className="">{children}</div>
-      </div>
+      <div className="grid mx-4">{children}</div>
     </div>
   );
 };
