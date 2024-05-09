@@ -37,7 +37,7 @@ function BreadcrumbCN(props) {
           if (key < pathnames.length - 1) {
             return (
               <React.Fragment key={key}>
-                <BreadcrumbItem className="text-gray-listas flex items-center">
+                <BreadcrumbItem className="flex items-center text-blue-500">
                   <BreadcrumbLink
                     className="cursor-pointer"
                     onClick={() => handleNavigate(path)}
@@ -54,7 +54,7 @@ function BreadcrumbCN(props) {
             return (
               <React.Fragment key={key}>
                 <BreadcrumbItem className="flex items-center">
-                  <BreadcrumbPage>{alias}</BreadcrumbPage>
+                  <BreadcrumbPage className="text-gray-600">{alias}</BreadcrumbPage>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
               </React.Fragment>

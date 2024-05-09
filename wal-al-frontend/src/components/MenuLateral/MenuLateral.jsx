@@ -38,7 +38,7 @@ const MenuLateral = (props) => {
         </div>
         <MenuAnt collapsed={collapsed} />
       </div>
-      <div className="menu-lateral__content mx-4">
+      <div className="menu-lateral__content mx-4 gap-1">
         <div className="flex items-center">
           <BreadcrumbCN rutas={totalRutas} />
         </div>
