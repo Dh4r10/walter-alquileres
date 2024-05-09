@@ -31,7 +31,7 @@ export const totalRutas = [
     id: 5,
     name: 'info-inquilinos',
     path: '/info-inquilinos/:id',
-    unionPath: 'lista-inquilinos/:id',
+    unionPath: 'info-inquilinos/:id',
     alias: 'DATOS DEL INQUILINO',
   },
 ];

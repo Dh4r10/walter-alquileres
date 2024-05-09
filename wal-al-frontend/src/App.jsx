@@ -23,7 +23,7 @@ function App() {
         />
         <Route
           element={<ActualizarContrasenia />}
-          path="/login/update-password"
+          path={seguridadRutas[0].path + seguridadRutas[2].path}
         />
         <Route
           path="/"
