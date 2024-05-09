@@ -34,6 +34,13 @@ export const totalRutas = [
     unionPath: 'lista-inquilinos/:id',
     alias: 'DATOS DEL INQUILINO',
   },
+  {
+    id: 6,
+    name: 'viviendas',
+    path: '/viviendas',
+    unionPath: 'viviendas/',
+    alias: 'VIVIENDAS',
+  },
 ];
 
 export const seguridadRutas = [
@@ -74,5 +81,12 @@ export const arrendamientoRutas = [
     path: '/info-inquilinos/:id',
     unionPath: 'lista-inquilinos/:id',
     alias: 'DATOS DEL INQUILINO',
+  },
+  {
+    id: 3,
+    name: 'viviendas',
+    path: '/viviendas',
+    unionPath: 'viviendas/',
+    alias: 'VIVIENDAS',
   },
 ];

@@ -1,10 +1,13 @@
+import Listas from '@/components/Listas';
 import MenuLateral from '@/components/MenuLateral';
 import React from 'react';
 
 const ListaInquilinos = () => {
   return (
     <MenuLateral>
-      <div className="h-full">1</div>
+      <div className="h-full">
+        <Listas />
+      </div>
     </MenuLateral>
   );
 };

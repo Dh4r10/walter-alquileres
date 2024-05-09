@@ -9,6 +9,7 @@ import ListaInquilinos from './modules/arrendamiento/pages/ListaInquilinos';
 
 import { arrendamientoRutas, seguridadRutas } from './utils/paths';
 import InfoInquilinos from './modules/arrendamiento/pages/InfoInquilinos';
+import Viviendas from './modules/arrendamiento/pages/Viviendas';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -27,7 +28,7 @@ function App() {
         />
         <Route
           path="/"
-          element={<Navigate to={arrendamientoRutas[0].path} />}
+          element={<Navigate to={arrendamientoRutas[2].path} />}
         />
         <Route
           element={<ListaInquilinos />}
@@ -36,6 +37,10 @@ function App() {
         <Route
           element={<InfoInquilinos />}
           path={arrendamientoRutas[0].path + arrendamientoRutas[1].path}
+        />
+        <Route
+          element={<Viviendas />}
+          path={arrendamientoRutas[2].path}
         />
       </Routes>
     </div>
