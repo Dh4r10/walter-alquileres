@@ -1,0 +1,10 @@
+.listas {
+  display: grid;
+  grid-template-rows: 11fr 1fr;
+
+  tr {
+    &:nth-child(even) {
+      background: #eaeaea;
+    }
+  }
+}

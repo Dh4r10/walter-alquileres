@@ -1,92 +1,97 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from 'react';
 
-import Tabla from "./Tabla";
+import Tabla from './Tabla';
 
 import {
-    useReactTable,
-    getCoreRowModel,
-    getPaginationRowModel,
-    getSortedRowModel,
-    getFilteredRowModel,
-} from "@tanstack/react-table";
+  useReactTable,
+  getCoreRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  getFilteredRowModel,
+} from '@tanstack/react-table';
 // import AuthContext from "@/contexts/AuthContext";
 // import { getAxios } from "@/functions/methods";
-import data_mock from './MOCK_DATA.json'
+import data_mock from './MOCK_DATA.json';
+
+import './Listas.scss';
 
 const ListaUsuarios = (props) => {
-    // let { authTokens } = useContext(AuthContext);
+  // let { authTokens } = useContext(AuthContext);
 
-    const { api, columnsValue, classNameTable, classNameFiltros, filtrosLista } =
-        props;
+  const { api, columnsValue, classNameTable, filtrosLista, classNameFiltros } =
+    props;
 
-    // const [reload, setReload] = useState(true);
-    // const [dataApi, setDataApi] = useState({});
-    // const [loading, setLoading] = useState(false);
-    // const [error, setError] = useState(null);
+  const [reload, setReload] = useState(true);
+  // const [dataApi, setDataApi] = useState({});
+  // const [loading, setLoading] = useState(false);
+  // const [error, setError] = useState(null);
 
-    // const headers = {
-    //     "Content-Type": "application/json",
-    //     Authorization: "Bearer " + String(authTokens?.access),
-    // };
+  // const headers = {
+  //     "Content-Type": "application/json",
+  //     Authorization: "Bearer " + String(authTokens?.access),
+  // };
 
-    // useEffect(() => {
-    //     getAxios(api, headers, setDataApi, setLoading, setError);
-    // }, [reload]);
+  // useEffect(() => {
+  //     getAxios(api, headers, setDataApi, setLoading, setError);
+  // }, [reload]);
 
-    const data = data_mock;
+  const data = data_mock;
 
-    const columns = [
-        { header: "ID", accessorKey: "id" },
-        { header: "FIRST NAME", accessorKey: "first_name" },
-        { header: "LAST NAME", accessorKey: "last_name" },
-        { header: "EMAIL", accessorKey: "email" },
-        { header: "GENDER", accessorKey: "gender" },
-        { header: "IP V4", accessorKey: "ip_address" },
-    ];
+  const columns = columnsValue(reload, setReload);
 
-    const [sorting, setSorting] = useState([]);
-    const [filteringSearch, setFilteringSearch] = useState("");
-    const [filteringTipo, setFilteringTipo] = useState([
-        {
-            id: "tipo",
-            value: "", // Valor inicial del filtro de la columna "tipo"
-        },
-    ]);
+  const [sorting, setSorting] = useState([]);
+  const [filteringSearch, setFilteringSearch] = useState('');
+  const [filteringTipo, setFilteringTipo] = useState([
+    {
+      id: 'tipo',
+      value: '', // Valor inicial del filtro de la columna "tipo"
+    },
+  ]);
 
-    const table = useReactTable({
-        data,
-        columns,
-        getCoreRowModel: getCoreRowModel(),
-        getPaginationRowModel: getPaginationRowModel(),
-        getSortedRowModel: getSortedRowModel(),
-        getFilteredRowModel: getFilteredRowModel(),
-        state: {
-            sorting,
-            globalFilter: filteringSearch,
-            columnFilters: filteringTipo,
-        },
-        onSortingChange: setSorting,
-        onColumnFiltersChange: setFilteringTipo,
-        onGlobalFilterChange: setFilteringSearch,
-    });
+  const table = useReactTable({
+    data,
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    state: {
+      sorting,
+      globalFilter: filteringSearch,
+      columnFilters: filteringTipo,
+    },
+    onSortingChange: setSorting,
+    onColumnFiltersChange: setFilteringTipo,
+    onGlobalFilterChange: setFilteringSearch,
+  });
 
-    const numItemsForPage = table.getRowModel().rows.length;
-    const totalItems = data.length;
+  const filtros = filtrosLista(
+    setFilteringTipo,
+    setFilteringSearch,
+    filteringSearch
+  );
 
-    return (
-        <>
-            <div className="border-[1px] bg-gray-300 border-gray-400">FILTROS</div>
-            <div className="max-h-[63.5vh] overflow-y-auto border-[1px] border-blue-500">
-                <Tabla
-                    classNameTable={classNameTable}
-                    table={table}
-                    numItemsForPage={numItemsForPage}
-                    totalItems={totalItems}
-                />
-            </div>
-            <div className="bg-red-400">PAGINACION</div>
-        </>
-    );
+  const numItemsForPage = table.getRowModel().rows.length;
+  const totalItems = data.length;
+
+  return (
+    <>
+      <div className={`${classNameFiltros} border-[1px] bg-white`}>
+        {filtros}
+      </div>
+      <div className="listas gap-2">
+        <div className="border-[1px] max-h-[71vh] min-h-[400px] overflow-y-auto bg-white">
+          <Tabla
+            classNameTable={classNameTable}
+            table={table}
+            numItemsForPage={numItemsForPage}
+            totalItems={totalItems}
+          />
+        </div>
+        <div>PAGINACION</div>
+      </div>
+    </>
+  );
 };
 
 export default ListaUsuarios;

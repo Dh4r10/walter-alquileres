@@ -38,10 +38,7 @@ function App() {
           element={<InfoInquilinos />}
           path={arrendamientoRutas[0].path + arrendamientoRutas[1].path}
         />
-        <Route
-          element={<Viviendas />}
-          path={arrendamientoRutas[2].path}
-        />
+        <Route element={<Viviendas />} path={arrendamientoRutas[2].path} />
       </Routes>
     </div>
   );

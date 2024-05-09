@@ -54,7 +54,9 @@ function BreadcrumbCN(props) {
             return (
               <React.Fragment key={key}>
                 <BreadcrumbItem className="flex items-center">
-                  <BreadcrumbPage className="text-gray-600">{alias}</BreadcrumbPage>
+                  <BreadcrumbPage className="text-gray-600">
+                    {alias}
+                  </BreadcrumbPage>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
               </React.Fragment>
