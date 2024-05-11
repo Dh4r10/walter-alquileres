@@ -1,4 +1,6 @@
 .viviendas {
   display: grid;
-  grid-template-rows: 1fr 5fr;
+  grid-template-rows: auto 10fr auto;
+  // display: flex;
+  // flex-direction: column;
 }

@@ -1,10 +1,10 @@
 .menu-lateral {
   display: grid;
-  grid-template-columns: 1fr 25fr;
+  grid-template-columns: 1fr 100fr;
 
   &__boton {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: auto 1fr;
   }
 
   .ant-menu-inline {
@@ -29,6 +29,6 @@
 
   &__content {
     display: grid;
-    grid-template-rows: 1fr 27fr;
+    grid-template-rows: auto 25fr;
   }
 }

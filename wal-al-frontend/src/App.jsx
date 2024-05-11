@@ -10,6 +10,7 @@ import ListaInquilinos from './modules/arrendamiento/pages/ListaInquilinos';
 import { arrendamientoRutas, seguridadRutas } from './utils/paths';
 import InfoInquilinos from './modules/arrendamiento/pages/InfoInquilinos';
 import Viviendas from './modules/arrendamiento/pages/Viviendas';
+import Usuarios from './modules/seguridad/pages/Usuarios';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -30,6 +31,11 @@ function App() {
           path="/"
           element={<Navigate to={arrendamientoRutas[2].path} />}
         />
+        <Route
+          element={<Usuarios />}
+          path={seguridadRutas[3].path}
+        />
+
         <Route
           element={<ListaInquilinos />}
           path={arrendamientoRutas[0].path}

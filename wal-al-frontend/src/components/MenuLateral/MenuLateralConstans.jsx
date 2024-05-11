@@ -14,7 +14,7 @@ export const ITEMS = [
     children: [
       {
         key: '11',
-        label: 'Option 1',
+        label: 'Usuarios',
       },
       {
         key: '12',

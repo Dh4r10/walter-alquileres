@@ -41,6 +41,13 @@ export const totalRutas = [
     unionPath: 'viviendas/',
     alias: 'VIVIENDAS',
   },
+  {
+    id: 7,
+    name: 'usuarios',
+    path: '/usuarios',
+    unionPath: 'usuarios/',
+    alias: 'USUARIOS',
+  },
 ];
 
 export const seguridadRutas = [
@@ -64,6 +71,13 @@ export const seguridadRutas = [
     path: '/update-password',
     unionPath: 'update-password/',
     alias: 'ACTUALIZAR CONTRASEÑA',
+  },
+  {
+    id: 4,
+    name: 'usuarios',
+    path: '/usuarios',
+    unionPath: 'usuarios/',
+    alias: 'USUARIOS',
   },
 ];
 

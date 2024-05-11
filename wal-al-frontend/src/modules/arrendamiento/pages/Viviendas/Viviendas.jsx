@@ -10,7 +10,7 @@ import './FiltrosViviendas/FiltrosViviendas.scss';
 const Viviendas = () => {
   return (
     <MenuLateral>
-      <div className="viviendas h-full gap-4">
+      <div className="viviendas h-full gap-2">
         <Listas
           columnsValue={columnsValue}
           classNameTable="viviendas-table"

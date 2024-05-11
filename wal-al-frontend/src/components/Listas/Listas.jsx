@@ -3,25 +3,27 @@ import React, { useState, useContext, useEffect } from 'react';
 import Tabla from './Tabla';
 
 import {
-  useReactTable,
   getCoreRowModel,
+  getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
-  getFilteredRowModel,
-} from '@tanstack/react-table';
+  useReactTable
+} from "@tanstack/react-table"
 // import AuthContext from "@/contexts/AuthContext";
 // import { getAxios } from "@/functions/methods";
 import data_mock from './MOCK_DATA.json';
 
 import './Listas.scss';
+import PaginationListas from './PaginationListas';;
 
-const ListaUsuarios = (props) => {
+const Listas = (props) => {
   // let { authTokens } = useContext(AuthContext);
 
   const { api, columnsValue, classNameTable, filtrosLista, classNameFiltros } =
     props;
 
   const [reload, setReload] = useState(true);
+  const [columnFilters, setColumnFilters] = useState([])
   // const [dataApi, setDataApi] = useState({});
   // const [loading, setLoading] = useState(false);
   // const [error, setError] = useState(null);
@@ -39,59 +41,49 @@ const ListaUsuarios = (props) => {
 
   const columns = columnsValue(reload, setReload);
 
-  const [sorting, setSorting] = useState([]);
-  const [filteringSearch, setFilteringSearch] = useState('');
-  const [filteringTipo, setFilteringTipo] = useState([
-    {
-      id: 'tipo',
-      value: '', // Valor inicial del filtro de la columna "tipo"
-    },
-  ]);
-
   const table = useReactTable({
     data,
     columns,
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
+    filterFns: {},
     state: {
-      sorting,
-      globalFilter: filteringSearch,
-      columnFilters: filteringTipo,
+      columnFilters
     },
-    onSortingChange: setSorting,
-    onColumnFiltersChange: setFilteringTipo,
-    onGlobalFilterChange: setFilteringSearch,
-  });
+    onColumnFiltersChange: setColumnFilters,
+    getCoreRowModel: getCoreRowModel(),
+    getFilteredRowModel: getFilteredRowModel(), //client side filtering
+    getSortedRowModel: getSortedRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    debugTable: true,
+    debugHeaders: true,
+    debugColumns: false
+  })
 
-  const filtros = filtrosLista(
-    setFilteringTipo,
-    setFilteringSearch,
-    filteringSearch
-  );
+  const filtros = filtrosLista(table, classNameFiltros);
 
   const numItemsForPage = table.getRowModel().rows.length;
   const totalItems = data.length;
 
+  const pageSizeOptions = [10, 20, 50, 100]
+
   return (
     <>
-      <div className={`${classNameFiltros} border-[1px] bg-white`}>
+      <div className={`${classNameFiltros} border-[1px] bg-white px-3 gap-2 py-2`}>
         {filtros}
       </div>
-      <div className="listas gap-2">
-        <div className="border-[1px] max-h-[71vh] min-h-[400px] overflow-y-auto bg-white">
+      <div className="listas">
+        <div className="border-[1px] overflow-y-auto bg-white">
           <Tabla
             classNameTable={classNameTable}
             table={table}
             numItemsForPage={numItemsForPage}
-            totalItems={totalItems}
-          />
+            totalItems={totalItems} />
         </div>
-        <div>PAGINACION</div>
+      </div>
+      <div className='flex pb-2 items-center justify-end'>
+        <PaginationListas table={table} totalItems={totalItems} pageSizeOptions={pageSizeOptions} />
       </div>
     </>
   );
 };
 
-export default ListaUsuarios;
+export default Listas;

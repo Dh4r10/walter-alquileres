@@ -15,11 +15,12 @@ const MenuLateral = (props) => {
 
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
+    console.log(collapsed)
   };
 
   return (
     <div className="menu-lateral h-full overflow-auto">
-      <div className="w-full bg-white">
+      <div className="grid grid-rows-[auto,1fr] w-full bg-white">
         <div className="menu-lateral__boton border-b-[1px]">
           <Button
             type="primary"
@@ -28,7 +29,7 @@ const MenuLateral = (props) => {
           >
             {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
           </Button>
-          <div className="w-full flex justify-center items-center bg-white border-r-[1px]">
+          <div className="menu-lateral__boton-image w-full flex justify-center items-center bg-white border-r-[1px]">
             <img
               className="w-28"
               src="/img/logo_menu_lateral.png"
@@ -39,7 +40,7 @@ const MenuLateral = (props) => {
         <MenuAnt collapsed={collapsed} />
       </div>
       <div className="menu-lateral__content mx-4 gap-1">
-        <div className="flex items-center">
+        <div className="flex items-center py-1">
           <BreadcrumbCN rutas={totalRutas} />
         </div>
         {children}
