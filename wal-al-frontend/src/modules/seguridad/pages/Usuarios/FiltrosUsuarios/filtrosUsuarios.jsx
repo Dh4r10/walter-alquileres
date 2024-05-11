@@ -18,13 +18,13 @@ export const filtrosUsuarios = (
         >
           <CallFilter
             headerGroup={headerGroup}
-            num={2}
+            num={3}
             title="TIPO USUARIO:"
             options={gender}
           />
           <CallFilter
             headerGroup={headerGroup}
-            num={4}
+            num={5}
             title="ULT. INGRESO:"
             options={gender}
           />

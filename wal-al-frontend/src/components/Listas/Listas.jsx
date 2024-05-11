@@ -26,6 +26,7 @@ const Listas = (props) => {
   const [reload, setReload] = useState(true);
   const [columnFilters, setColumnFilters] = useState([]);
   const [sorting, setSorting] = useState([]);
+  const [rowSelection, setRowSelection] = useState({});
   const [filteringSearch, setFilteringSearch] = useState('');
   // const [dataApi, setDataApi] = useState({});
   // const [loading, setLoading] = useState(false);
@@ -52,7 +53,10 @@ const Listas = (props) => {
       sorting,
       globalFilter: filteringSearch,
       columnFilters,
+      rowSelection,
     },
+    enableRowSelection: true,
+    onRowSelectionChange: setRowSelection,
     onColumnFiltersChange: setColumnFilters,
     onSortingChange: setSorting,
     onGlobalFilterChange: setFilteringSearch,
@@ -91,10 +95,11 @@ const Listas = (props) => {
             table={table}
             numItemsForPage={numItemsForPage}
             totalItems={totalItems}
+            rowSelection={rowSelection}
           />
         </div>
       </div>
-      <div className="flex pb-2 items-center justify-end">
+      <div className="flex pb-2 items-start justify-end">
         <PaginationListas
           table={table}
           totalItems={totalItems}
