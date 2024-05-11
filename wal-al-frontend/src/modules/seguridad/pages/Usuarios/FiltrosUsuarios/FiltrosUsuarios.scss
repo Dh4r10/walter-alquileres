@@ -1,0 +1,14 @@
+.usuarios-filtros {
+  display: grid;
+  grid-template-rows: auto 1fr;
+
+  &__columns {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  &__general {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
