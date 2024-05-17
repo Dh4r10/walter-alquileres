@@ -37,7 +37,7 @@ const DateTimeFiltros = (props) => {
       <Space direction="vertical" size="middle">
         <Space.Compact
           size="large"
-          className="w-full gap-1"
+          className="w-full gap-1 min-w-28"
           direction="vertical"
         >
           <p className="text-sm pl-1">{title}</p>

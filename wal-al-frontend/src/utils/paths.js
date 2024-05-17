@@ -48,6 +48,13 @@ export const totalRutas = [
     unionPath: 'usuarios/',
     alias: 'USUARIOS',
   },
+  {
+    id: 8,
+    name: 'crear-usuario',
+    path: '/crear-usuario',
+    unionPath: 'crear-usuario/',
+    alias: 'CREAR USUARIO',
+  },
 ];
 
 export const seguridadRutas = [
@@ -78,6 +85,14 @@ export const seguridadRutas = [
     path: '/usuarios',
     unionPath: 'usuarios/',
     alias: 'USUARIOS',
+  },
+
+  {
+    id: 5,
+    name: 'crear-usuario',
+    path: '/crear-usuario',
+    unionPath: 'crear-usuario/',
+    alias: 'CREAR USUARIO',
   },
 ];
 

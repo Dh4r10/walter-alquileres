@@ -18,7 +18,7 @@ export const ITEMS = [
       },
       {
         key: '12',
-        label: 'Option 2',
+        label: 'Crear usuario',
       },
       {
         key: '13',

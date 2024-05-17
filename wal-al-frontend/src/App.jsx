@@ -11,6 +11,7 @@ import { arrendamientoRutas, seguridadRutas } from './utils/paths';
 import InfoInquilinos from './modules/arrendamiento/pages/InfoInquilinos';
 import Viviendas from './modules/arrendamiento/pages/Viviendas';
 import Usuarios from './modules/seguridad/pages/Usuarios';
+import CrearUsuario from './modules/seguridad/pages/CrearUsuario';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -34,6 +35,10 @@ function App() {
         <Route
           element={<Usuarios />}
           path={seguridadRutas[3].path}
+        />
+        <Route
+          element={<CrearUsuario />}
+          path={seguridadRutas[3].path + seguridadRutas[4].path}
         />
 
         <Route

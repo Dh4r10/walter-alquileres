@@ -87,7 +87,7 @@ const Tabla = (props) => {
             </td>
             <td colSpan={20}>
               <button
-                className="border p-2 text-sm text-gray-600 hover:bg-red-400 hover:border-white hover:text-white"
+                className="border p-2 text-sm text-gray-600 hover:bg-red-400 hover:border-red-500 hover:text-white rounded-[4px]"
                 onClick={() => {
                   for (let key in rowsSelect) {
                     console.log(

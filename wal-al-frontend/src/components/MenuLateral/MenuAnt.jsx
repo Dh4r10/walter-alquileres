@@ -23,6 +23,10 @@ const MenuAnt = (props) => {
       navigate(seguridadRutas[3].path);
     }
 
+    if (key === "12") {
+      navigate(seguridadRutas[3].path + seguridadRutas[4].path);
+    }
+
   };
 
   const onOpenChange = (openKeys) => {

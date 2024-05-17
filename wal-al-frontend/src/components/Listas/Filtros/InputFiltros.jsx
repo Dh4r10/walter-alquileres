@@ -18,7 +18,7 @@ const InputFiltros = (props) => {
       }}
     >
       <Space direction="vertical" size="middle">
-        <Space.Compact size="large" className="w-full">
+        <Space.Compact size="large" className="w-full min-w-28">
           <Input
             addonBefore={<SearchOutlined />}
             placeholder="Buscar"
